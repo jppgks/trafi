@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A3FFB03DFCC0B16B86E2B8F /* Pods_Trafi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6EC62477E1A3BD64E91981 /* Pods_Trafi.framework */; };
+		79D1FD9966D7BA1994BECDB6 /* Pods_TrafiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CED4C048F5FB8728E35209E /* Pods_TrafiUITests.framework */; };
+		8070FBF14D199DF7CE65F038 /* Pods_TrafiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5501092E7A6E25590D92B9A1 /* Pods_TrafiTests.framework */; };
 		AF0726251EE47EEC001D20C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0726241EE47EEC001D20C1 /* AppDelegate.swift */; };
-		AF0726271EE47EEC001D20C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0726261EE47EEC001D20C1 /* ViewController.swift */; };
 		AF07262A1EE47EEC001D20C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0726281EE47EEC001D20C1 /* Main.storyboard */; };
 		AF07262C1EE47EEC001D20C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF07262B1EE47EEC001D20C1 /* Assets.xcassets */; };
 		AF07262F1EE47EEC001D20C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF07262D1EE47EEC001D20C1 /* LaunchScreen.storyboard */; };
 		AF07263A1EE47EEC001D20C1 /* TrafiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0726391EE47EEC001D20C1 /* TrafiTests.swift */; };
 		AF0726451EE47EEC001D20C1 /* TrafiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0726441EE47EEC001D20C1 /* TrafiUITests.swift */; };
+		AF429CEC1EE55822000988FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF429CEB1EE55822000988FC /* Competition.swift */; };
+		AF429CF01EE57C6F000988FC /* CompetitionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF429CEF1EE57C6F000988FC /* CompetitionTableViewController.swift */; };
+		AF429CF41EE58556000988FC /* CompetitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF429CF31EE58556000988FC /* CompetitionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		033436D8B2D9499942CF9516 /* Pods-Trafi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trafi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Trafi/Pods-Trafi.release.xcconfig"; sourceTree = "<group>"; };
+		0CED4C048F5FB8728E35209E /* Pods_TrafiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrafiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6EC62477E1A3BD64E91981 /* Pods_Trafi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trafi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21A3DA2EC8B403D16298E33F /* Pods-Trafi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trafi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Trafi/Pods-Trafi.debug.xcconfig"; sourceTree = "<group>"; };
+		4E0653A6598A98CABAE94EF6 /* Pods-TrafiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiTests/Pods-TrafiTests.release.xcconfig"; sourceTree = "<group>"; };
+		5501092E7A6E25590D92B9A1 /* Pods_TrafiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrafiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0726211EE47EEC001D20C1 /* Trafi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trafi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0726241EE47EEC001D20C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF0726261EE47EEC001D20C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF0726291EE47EEC001D20C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF07262B1EE47EEC001D20C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF07262E1EE47EEC001D20C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +57,12 @@
 		AF0726401EE47EEC001D20C1 /* TrafiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrafiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0726441EE47EEC001D20C1 /* TrafiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafiUITests.swift; sourceTree = "<group>"; };
 		AF0726461EE47EEC001D20C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF429CEB1EE55822000988FC /* Competition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
+		AF429CEF1EE57C6F000988FC /* CompetitionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionTableViewController.swift; sourceTree = "<group>"; };
+		AF429CF31EE58556000988FC /* CompetitionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionTableViewCell.swift; sourceTree = "<group>"; };
+		DCCE73A768B89DFABC6B6378 /* Pods-TrafiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F4AB1641A87AC41DFA7D9E99 /* Pods-TrafiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F8B2BDC9C96496881AA24BAB /* Pods-TrafiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiTests/Pods-TrafiTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A3FFB03DFCC0B16B86E2B8F /* Pods_Trafi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8070FBF14D199DF7CE65F038 /* Pods_TrafiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D1FD9966D7BA1994BECDB6 /* Pods_TrafiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3969C06AF4841D3828B8B7D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F6EC62477E1A3BD64E91981 /* Pods_Trafi.framework */,
+				5501092E7A6E25590D92B9A1 /* Pods_TrafiTests.framework */,
+				0CED4C048F5FB8728E35209E /* Pods_TrafiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88734B2306D9F5A839B5C782 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21A3DA2EC8B403D16298E33F /* Pods-Trafi.debug.xcconfig */,
+				033436D8B2D9499942CF9516 /* Pods-Trafi.release.xcconfig */,
+				F8B2BDC9C96496881AA24BAB /* Pods-TrafiTests.debug.xcconfig */,
+				4E0653A6598A98CABAE94EF6 /* Pods-TrafiTests.release.xcconfig */,
+				F4AB1641A87AC41DFA7D9E99 /* Pods-TrafiUITests.debug.xcconfig */,
+				DCCE73A768B89DFABC6B6378 /* Pods-TrafiUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AF0726181EE47EEC001D20C1 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +123,8 @@
 				AF0726381EE47EEC001D20C1 /* TrafiTests */,
 				AF0726431EE47EEC001D20C1 /* TrafiUITests */,
 				AF0726221EE47EEC001D20C1 /* Products */,
+				88734B2306D9F5A839B5C782 /* Pods */,
+				3969C06AF4841D3828B8B7D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +142,13 @@
 			isa = PBXGroup;
 			children = (
 				AF0726241EE47EEC001D20C1 /* AppDelegate.swift */,
-				AF0726261EE47EEC001D20C1 /* ViewController.swift */,
 				AF0726281EE47EEC001D20C1 /* Main.storyboard */,
+				AF429CF31EE58556000988FC /* CompetitionTableViewCell.swift */,
 				AF07262B1EE47EEC001D20C1 /* Assets.xcassets */,
 				AF07262D1EE47EEC001D20C1 /* LaunchScreen.storyboard */,
 				AF0726301EE47EEC001D20C1 /* Info.plist */,
+				AF429CEB1EE55822000988FC /* Competition.swift */,
+				AF429CEF1EE57C6F000988FC /* CompetitionTableViewController.swift */,
 			);
 			path = Trafi;
 			sourceTree = "<group>";
@@ -132,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF0726491EE47EEC001D20C1 /* Build configuration list for PBXNativeTarget "Trafi" */;
 			buildPhases = (
+				B49BCA5FC6BFEB37C65938C2 /* [CP] Check Pods Manifest.lock */,
 				AF07261D1EE47EEC001D20C1 /* Sources */,
 				AF07261E1EE47EEC001D20C1 /* Frameworks */,
 				AF07261F1EE47EEC001D20C1 /* Resources */,
+				3A7B9C8CC2B19D86089EB8FE /* [CP] Embed Pods Frameworks */,
+				DEA3C641EA0C090922D39572 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF07264C1EE47EEC001D20C1 /* Build configuration list for PBXNativeTarget "TrafiTests" */;
 			buildPhases = (
+				F0232981AB11630FFCC73341 /* [CP] Check Pods Manifest.lock */,
 				AF0726311EE47EEC001D20C1 /* Sources */,
 				AF0726321EE47EEC001D20C1 /* Frameworks */,
 				AF0726331EE47EEC001D20C1 /* Resources */,
+				2F8CACC49B0F710635C58084 /* [CP] Embed Pods Frameworks */,
+				F64905F77662DDF3FC25F4F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +219,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF07264F1EE47EEC001D20C1 /* Build configuration list for PBXNativeTarget "TrafiUITests" */;
 			buildPhases = (
+				4E631894E9A347E9EBCFA857 /* [CP] Check Pods Manifest.lock */,
 				AF07263C1EE47EEC001D20C1 /* Sources */,
 				AF07263D1EE47EEC001D20C1 /* Frameworks */,
 				AF07263E1EE47EEC001D20C1 /* Resources */,
+				DF87B36001BC9FC74975EBE2 /* [CP] Embed Pods Frameworks */,
+				C669C392BD8202E40CADB2BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,13 +312,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F8CACC49B0F710635C58084 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrafiTests/Pods-TrafiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A7B9C8CC2B19D86089EB8FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trafi/Pods-Trafi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E631894E9A347E9EBCFA857 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B49BCA5FC6BFEB37C65938C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C669C392BD8202E40CADB2BA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEA3C641EA0C090922D39572 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Trafi/Pods-Trafi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF87B36001BC9FC74975EBE2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0232981AB11630FFCC73341 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F64905F77662DDF3FC25F4F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrafiTests/Pods-TrafiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF07261D1EE47EEC001D20C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF0726271EE47EEC001D20C1 /* ViewController.swift in Sources */,
+				AF429CEC1EE55822000988FC /* Competition.swift in Sources */,
+				AF429CF01EE57C6F000988FC /* CompetitionTableViewController.swift in Sources */,
 				AF0726251EE47EEC001D20C1 /* AppDelegate.swift in Sources */,
+				AF429CF41EE58556000988FC /* CompetitionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +610,7 @@
 		};
 		AF07264A1EE47EEC001D20C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21A3DA2EC8B403D16298E33F /* Pods-Trafi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6U8J5PNAX2;
@@ -428,6 +624,7 @@
 		};
 		AF07264B1EE47EEC001D20C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 033436D8B2D9499942CF9516 /* Pods-Trafi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6U8J5PNAX2;
@@ -441,6 +638,7 @@
 		};
 		AF07264D1EE47EEC001D20C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8B2BDC9C96496881AA24BAB /* Pods-TrafiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -456,6 +654,7 @@
 		};
 		AF07264E1EE47EEC001D20C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E0653A6598A98CABAE94EF6 /* Pods-TrafiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +670,7 @@
 		};
 		AF0726501EE47EEC001D20C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4AB1641A87AC41DFA7D9E99 /* Pods-TrafiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6U8J5PNAX2;
@@ -485,6 +685,7 @@
 		};
 		AF0726511EE47EEC001D20C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCCE73A768B89DFABC6B6378 /* Pods-TrafiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6U8J5PNAX2;
@@ -516,6 +717,7 @@
 				AF07264B1EE47EEC001D20C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF07264C1EE47EEC001D20C1 /* Build configuration list for PBXNativeTarget "TrafiTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +726,7 @@
 				AF07264E1EE47EEC001D20C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF07264F1EE47EEC001D20C1 /* Build configuration list for PBXNativeTarget "TrafiUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +735,7 @@
 				AF0726511EE47EEC001D20C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
