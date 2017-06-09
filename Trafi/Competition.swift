@@ -17,6 +17,8 @@ class Competition {
     var open: Bool
     var state: String
     
+    var events = [Event]()
+    
     // Construct object from SwiftyJSON
     init?(_ json: JSON) {
         self.id = json["id"].stringValue
