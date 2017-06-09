@@ -67,7 +67,27 @@ class CompetitionTableViewController: UITableViewController {
         let competition = competitions[indexPath.row]
         
         cell.nameLabel.text = competition.name
-
+        cell.dateLabel.text = competition.date
+        cell.locationLabel.text = competition.location
+        
+        // Add shadow to cardView...
+        cell.cardView.layer.masksToBounds = false
+        cell.cardView.layer.shadowRadius = 10.0
+        cell.cardView.layer.shadowOpacity = 0.1
+        cell.cardView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.cardView.layer.shadowColor = UIColor.black.cgColor
+        
+        // ...and corners!
+        cell.cardView.layer.cornerRadius = 10.0
+        
+        // Make our cardView layer visible
+        cell.contentView.backgroundColor = nil
+        
+        // Increase padding in between cells
+        let f = cell.contentView.frame
+        let fr = UIEdgeInsetsInsetRect(f, UIEdgeInsetsMake(30, 30, 30, 30))
+        cell.contentView.frame = fr
+        
         return cell
     }
 

@@ -11,6 +11,9 @@ import UIKit
 class CompetitionTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var cardView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
