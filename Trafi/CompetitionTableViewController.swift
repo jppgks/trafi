@@ -7,9 +7,9 @@
 //
 
 import Alamofire
+import Pastel
 import SwiftyJSON
 import UIKit
-import Pastel
 
 class CompetitionTableViewController: UITableViewController {
     
@@ -17,6 +17,9 @@ class CompetitionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.reloadData()
+        Loader.addLoaderTo(self.tableView)
         downloadCompetitions()
     }
     
@@ -54,6 +57,7 @@ class CompetitionTableViewController: UITableViewController {
                     self.addToCompetitions(Competition(subJson)!)
                 }
                 // Competition array now has elements 🎉
+                Loader.removeLoaderFrom(self.tableView)
                 self.tableView.reloadData()
             case .failure(let error):
                 print(error)
@@ -77,10 +81,16 @@ class CompetitionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if competitions.count == 0 {
+            return 1
+        }
         return competitions.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if competitions.count == 0 {
+            return 3
+        }
         let dictKeys = Array(competitions.keys)
         let currentCompYear = dictKeys[section]
         return competitions[currentCompYear]!.count
@@ -93,6 +103,10 @@ class CompetitionTableViewController: UITableViewController {
         let cellIdentifier = "CompetitionTableViewCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CompetitionTableViewCell else {
             fatalError("The dequeued cell is not an instance of CompetitionTableViewCell.")
+        }
+        
+        if competitions.count == 0 {
+            return cell
         }
         
         // Get competition for current cell
@@ -142,6 +156,10 @@ class CompetitionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
+        
+        if competitions.count == 0 {
+            return view
+        }
         
         // Configure blur and vibrancy background
         let blurEffect = UIBlurEffect(style: .light)
