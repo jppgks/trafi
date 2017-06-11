@@ -40,6 +40,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(shouldPerformActionFor(shortcutItem: shortcutItem))
+    }
+    
+    private func shouldPerformActionFor(shortcutItem: UIApplicationShortcutItem) -> Bool {
+        let shortcutType = shortcutItem.type
+        guard let shortcutIdentifier = ShortcutIdentifier(identifier: shortcutType) else {
+            return false
+        }
+        return selectViewControllerFor(shortcutIdentifier: shortcutIdentifier)
+    }
+    
+    private func selectViewControllerFor(shortcutIdentifier: ShortcutIdentifier) -> Bool {
+        
+        switch shortcutIdentifier {
+        case .OpenCompetitions:
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let competititonsViewController: CompetitionTableViewController = mainStoryboard.instantiateViewController(withIdentifier: "competitions") as! CompetitionTableViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = competititonsViewController
+            self.window?.makeKeyAndVisible()
+            return true
+        }
+    }
 
 
 }

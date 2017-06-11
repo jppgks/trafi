@@ -13,7 +13,7 @@
         <!--Competition Table View Controller-->
         <scene sceneID="dDX-bH-Mz3">
             <objects>
-                <tableViewController id="2uR-Wu-qbl" customClass="CompetitionTableViewController" customModule="Trafi" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="competitions" id="2uR-Wu-qbl" customClass="CompetitionTableViewController" customModule="Trafi" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZpP-ey-B5h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,10 +41,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBG-vG-hIE">
-                                            <rect key="frame" x="10" y="30" width="355" height="240"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="260"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4F-5n-9AA" customClass="PastelView" customModule="Pastel">
-                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="240"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="260"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kfS-9H-nlx">
@@ -93,22 +93,22 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="leading" secondItem="CM4-74-rbR" secondAttribute="leading" id="4HC-Q0-M20"/>
                                                 <constraint firstItem="J4F-5n-9AA" firstAttribute="top" secondItem="mBG-vG-hIE" secondAttribute="top" id="EEd-p8-Ovj"/>
                                                 <constraint firstAttribute="trailing" secondItem="J4F-5n-9AA" secondAttribute="trailing" id="F0D-ju-CW2"/>
-                                                <constraint firstItem="CM4-74-rbR" firstAttribute="top" secondItem="kfS-9H-nlx" secondAttribute="bottom" constant="24" id="Pzm-xU-9CP"/>
+                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="leading" secondItem="mBG-vG-hIE" secondAttribute="leading" constant="20" id="QYj-Ee-hKe"/>
+                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="centerX" secondItem="J4F-5n-9AA" secondAttribute="centerX" id="Usl-Qy-OFG"/>
                                                 <constraint firstItem="J4F-5n-9AA" firstAttribute="leading" secondItem="mBG-vG-hIE" secondAttribute="leading" id="Ya8-2B-81b"/>
-                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="top" secondItem="mBG-vG-hIE" secondAttribute="top" constant="62" id="bo0-u0-RaT"/>
-                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="centerX" secondItem="J4F-5n-9AA" secondAttribute="centerX" id="k34-g5-4dC"/>
-                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="leading" secondItem="mBG-vG-hIE" secondAttribute="leading" constant="20" id="oF1-Yj-kj3"/>
+                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="leading" secondItem="CM4-74-rbR" secondAttribute="leading" id="jzb-Es-U0G"/>
+                                                <constraint firstItem="CM4-74-rbR" firstAttribute="top" secondItem="kfS-9H-nlx" secondAttribute="bottom" constant="24" id="pBe-y0-rf0"/>
                                                 <constraint firstAttribute="bottom" secondItem="J4F-5n-9AA" secondAttribute="bottom" id="sEs-ea-x3I"/>
+                                                <constraint firstItem="kfS-9H-nlx" firstAttribute="top" secondItem="mBG-vG-hIE" secondAttribute="top" constant="62" id="x1B-4E-ECe"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" red="0.16683608293533325" green="0.21899881958961487" blue="0.26069134473800659" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="mBG-vG-hIE" secondAttribute="trailing" constant="10" id="dJx-rP-rDp"/>
-                                        <constraint firstItem="mBG-vG-hIE" firstAttribute="top" secondItem="eNL-H8-onU" secondAttribute="top" constant="30" id="p3D-ha-eYd"/>
+                                        <constraint firstItem="mBG-vG-hIE" firstAttribute="top" secondItem="eNL-H8-onU" secondAttribute="top" constant="10" id="p3D-ha-eYd"/>
                                         <constraint firstAttribute="bottom" secondItem="mBG-vG-hIE" secondAttribute="bottom" constant="30" id="vZO-Tt-LWW"/>
                                         <constraint firstItem="mBG-vG-hIE" firstAttribute="leading" secondItem="eNL-H8-onU" secondAttribute="leading" constant="10" id="y7d-LJ-75B"/>
                                     </constraints>
