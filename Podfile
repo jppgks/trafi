@@ -8,6 +8,7 @@ target 'Trafi' do
   # Pods for Trafi
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Pastel'
 
   target 'TrafiTests' do
     inherit! :search_paths
