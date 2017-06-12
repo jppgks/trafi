@@ -32,3 +32,4 @@ class Competition {
         self.state = json["state"].stringValue
     }
 }
+

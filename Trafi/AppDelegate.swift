@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch shortcutIdentifier {
         case .OpenCompetitions:
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let competititonsViewController: CompetitionTableViewController = mainStoryboard.instantiateViewController(withIdentifier: "competitions") as! CompetitionTableViewController
+            let competititonsViewController: CompetitionsCollectionViewController = mainStoryboard.instantiateViewController(withIdentifier: "competitions") as! CompetitionsCollectionViewController
             self.window = UIWindow(frame: UIScreen.main.bounds)
             self.window?.rootViewController = competititonsViewController
             self.window?.makeKeyAndVisible()
