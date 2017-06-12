@@ -245,10 +245,8 @@ class CompetitionsCollectionViewController: UICollectionViewController {
 }
 
 extension CompetitionsCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = 300
-        return CGSize(width: collectionView.bounds.size.width, height: CGFloat(height))
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.size.width, height: 300);
     }
 }
+

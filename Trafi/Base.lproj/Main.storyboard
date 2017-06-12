@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zt6-Ek-Vty" customClass="BouncyLayout" customModule="BouncyLayout">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zt6-Ek-Vty">
                             <size key="itemSize" width="292" height="299"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -102,6 +102,7 @@
                                     <constraint firstItem="mBG-vG-hIE" firstAttribute="top" secondItem="vBw-wF-aEo" secondAttribute="topMargin" id="Daj-hP-S6u"/>
                                     <constraint firstAttribute="bottom" secondItem="mBG-vG-hIE" secondAttribute="bottom" constant="30" id="Lso-h0-z31"/>
                                 </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <connections>
                                     <outlet property="cardView" destination="mBG-vG-hIE" id="tTT-gy-pu7"/>
                                     <outlet property="dateLabel" destination="lCj-0g-TNF" id="hFo-Qn-8Uu"/>
