@@ -10,6 +10,8 @@ import Pastel
 import UIKit
 
 class CompetitionsCollectionViewCell: UICollectionViewCell {
+    static let reuseIdentifier: String = "CompetitionCell"
+    
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!

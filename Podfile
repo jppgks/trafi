@@ -7,6 +7,7 @@ target 'Trafi' do
 
   # Pods for Trafi
   pod 'Alamofire'
+  pod 'BouncyLayout'
   pod 'SwiftyJSON'
   pod 'Pastel'
 

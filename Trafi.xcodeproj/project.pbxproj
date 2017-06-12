@@ -13,12 +13,13 @@
 		AF0726251EE47EEC001D20C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0726241EE47EEC001D20C1 /* AppDelegate.swift */; };
 		AF07262A1EE47EEC001D20C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0726281EE47EEC001D20C1 /* Main.storyboard */; };
 		AF07262C1EE47EEC001D20C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF07262B1EE47EEC001D20C1 /* Assets.xcassets */; };
-		AF07262F1EE47EEC001D20C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF07262D1EE47EEC001D20C1 /* LaunchScreen.storyboard */; };
 		AF07263A1EE47EEC001D20C1 /* TrafiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0726391EE47EEC001D20C1 /* TrafiTests.swift */; };
 		AF0726451EE47EEC001D20C1 /* TrafiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0726441EE47EEC001D20C1 /* TrafiUITests.swift */; };
-		AF429CEC1EE55822000988FC /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF429CEB1EE55822000988FC /* Competition.swift */; };
-		AF429CF01EE57C6F000988FC /* CompetitionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF429CEF1EE57C6F000988FC /* CompetitionTableViewController.swift */; };
-		AF429CF41EE58556000988FC /* CompetitionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF429CF31EE58556000988FC /* CompetitionTableViewCell.swift */; };
+		AF16D1E21EED7596001C9A70 /* ShortcutIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF16D1E11EED7596001C9A70 /* ShortcutIdentifier.swift */; };
+		AF2BAB7E1EEE838400811EEA /* CompetitionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB781EEE835A00811EEA /* CompetitionsCollectionViewCell.swift */; };
+		AF2BAB7F1EEE838600811EEA /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB791EEE835A00811EEA /* Competition.swift */; };
+		AF2BAB831EEE85A300811EEA /* CompetitionsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */; };
+		AF777A651EED905600B30598 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777A641EED8E6600B30598 /* Loader.swift */; };
 		AFCE46691EEB032900E74BD3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE46681EEB032900E74BD3 /* Event.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +51,6 @@
 		AF0726241EE47EEC001D20C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF0726291EE47EEC001D20C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AF07262B1EE47EEC001D20C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AF07262E1EE47EEC001D20C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF0726301EE47EEC001D20C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0726351EE47EEC001D20C1 /* TrafiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrafiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0726391EE47EEC001D20C1 /* TrafiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafiTests.swift; sourceTree = "<group>"; };
@@ -58,9 +58,12 @@
 		AF0726401EE47EEC001D20C1 /* TrafiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrafiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0726441EE47EEC001D20C1 /* TrafiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafiUITests.swift; sourceTree = "<group>"; };
 		AF0726461EE47EEC001D20C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF429CEB1EE55822000988FC /* Competition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
-		AF429CEF1EE57C6F000988FC /* CompetitionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionTableViewController.swift; sourceTree = "<group>"; };
-		AF429CF31EE58556000988FC /* CompetitionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionTableViewCell.swift; sourceTree = "<group>"; };
+		AF16D1E11EED7596001C9A70 /* ShortcutIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutIdentifier.swift; sourceTree = "<group>"; };
+		AF2BAB781EEE835A00811EEA /* CompetitionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AF2BAB791EEE835A00811EEA /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
+		AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsCollectionViewController.swift; sourceTree = "<group>"; };
+		AF6FE9941EED228000105EEB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AF777A641EED8E6600B30598 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		AFCE46681EEB032900E74BD3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DCCE73A768B89DFABC6B6378 /* Pods-TrafiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F4AB1641A87AC41DFA7D9E99 /* Pods-TrafiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,15 +146,15 @@
 		AF0726231EE47EEC001D20C1 /* Trafi */ = {
 			isa = PBXGroup;
 			children = (
+				AF2BAB771EEE835A00811EEA /* Competitions */,
+				AF6FE9941EED228000105EEB /* LaunchScreen.storyboard */,
 				AF0726241EE47EEC001D20C1 /* AppDelegate.swift */,
 				AF0726281EE47EEC001D20C1 /* Main.storyboard */,
-				AF429CF31EE58556000988FC /* CompetitionTableViewCell.swift */,
 				AF07262B1EE47EEC001D20C1 /* Assets.xcassets */,
-				AF07262D1EE47EEC001D20C1 /* LaunchScreen.storyboard */,
 				AF0726301EE47EEC001D20C1 /* Info.plist */,
-				AF429CEB1EE55822000988FC /* Competition.swift */,
-				AF429CEF1EE57C6F000988FC /* CompetitionTableViewController.swift */,
 				AFCE46681EEB032900E74BD3 /* Event.swift */,
+				AF16D1E11EED7596001C9A70 /* ShortcutIdentifier.swift */,
+				AF777A641EED8E6600B30598 /* Loader.swift */,
 			);
 			path = Trafi;
 			sourceTree = "<group>";
@@ -172,6 +175,16 @@
 				AF0726461EE47EEC001D20C1 /* Info.plist */,
 			);
 			path = TrafiUITests;
+			sourceTree = "<group>";
+		};
+		AF2BAB771EEE835A00811EEA /* Competitions */ = {
+			isa = PBXGroup;
+			children = (
+				AF2BAB781EEE835A00811EEA /* CompetitionsCollectionViewCell.swift */,
+				AF2BAB791EEE835A00811EEA /* Competition.swift */,
+				AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */,
+			);
+			path = Competitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +309,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF07262F1EE47EEC001D20C1 /* LaunchScreen.storyboard in Resources */,
 				AF07262C1EE47EEC001D20C1 /* Assets.xcassets in Resources */,
 				AF07262A1EE47EEC001D20C1 /* Main.storyboard in Resources */,
 			);
@@ -461,10 +473,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF429CEC1EE55822000988FC /* Competition.swift in Sources */,
-				AF429CF01EE57C6F000988FC /* CompetitionTableViewController.swift in Sources */,
+				AF16D1E21EED7596001C9A70 /* ShortcutIdentifier.swift in Sources */,
+				AF2BAB7F1EEE838600811EEA /* Competition.swift in Sources */,
+				AF2BAB831EEE85A300811EEA /* CompetitionsCollectionViewController.swift in Sources */,
 				AF0726251EE47EEC001D20C1 /* AppDelegate.swift in Sources */,
-				AF429CF41EE58556000988FC /* CompetitionTableViewCell.swift in Sources */,
+				AF777A651EED905600B30598 /* Loader.swift in Sources */,
+				AF2BAB7E1EEE838400811EEA /* CompetitionsCollectionViewCell.swift in Sources */,
 				AFCE46691EEB032900E74BD3 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,14 +523,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		AF07262D1EE47EEC001D20C1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF07262E1EE47EEC001D20C1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -524,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -573,6 +580,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -622,6 +630,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -637,7 +646,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YW.Trafi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -652,7 +661,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YW.Trafi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -668,7 +677,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YW.TrafiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trafi.app/Trafi";
 			};
@@ -685,7 +694,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YW.TrafiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trafi.app/Trafi";
 			};
@@ -701,7 +710,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YW.TrafiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Trafi;
 			};
@@ -717,7 +726,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YW.TrafiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Trafi;
 			};
