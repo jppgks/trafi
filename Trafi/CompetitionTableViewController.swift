@@ -137,17 +137,37 @@ class CompetitionTableViewController: UITableViewController {
         cell.pastelView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleRightMargin, .flexibleBottomMargin]
         cell.pastelView.layer.cornerRadius = 10.0
         
-        cell.pastelView.startPastelPoint = .bottomLeft
-        cell.pastelView.endPastelPoint = .topRight
+        cell.pastelView.startPastelPoint = .topLeft
+        cell.pastelView.endPastelPoint = .bottomRight
         
         cell.pastelView.animationDuration = 3.0
         
-        cell.pastelView.setColors([#colorLiteral(red: 1, green: 0.5058823529, blue: 0.4666666667, alpha: 1), #colorLiteral(red: 1, green: 0.5254901961, blue: 0.4784313725, alpha: 1), #colorLiteral(red: 1, green: 0.5490196078, blue: 0.4980392157, alpha: 1), #colorLiteral(red: 0.9764705882, green: 0.568627451, blue: 0.5215686275, alpha: 1)])
+        cell.pastelView.setColors([#colorLiteral(red: 0.983635366, green: 0.8747070432, blue: 0.5316541195, alpha: 1), #colorLiteral(red: 0.9531937242, green: 0.5111558437, blue: 0.4972118139, alpha: 1)])
         
         cell.pastelView.startAnimation()
         
-        // Give the "see more" button some nice curves 🍑
+        // Give the "see more" button some nice curves 🍑...
         cell.moreButton.layer.cornerRadius = 12
+        
+        // ...and a blurry background
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.clipsToBounds = true
+        blurredEffectView.frame = cell.moreButton.bounds
+        blurredEffectView.layer.cornerRadius = 12
+        blurredEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrancyEffectView.clipsToBounds = true
+        vibrancyEffectView.frame = cell.moreButton.bounds
+        blurredEffectView.layer.cornerRadius = 12
+        vibrancyEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        blurredEffectView.contentView.addSubview(vibrancyEffectView)
+        
+        cell.moreButton.addSubview(blurredEffectView)
+        cell.moreButton.sendSubview(toBack: blurredEffectView)
         
         return cell
     }
