@@ -10,6 +10,7 @@ import Alamofire
 import Pastel
 import SwiftyJSON
 import UIKit
+import UPCarouselFlowLayout
 
 private let reuseIdentifier = "CompetitionCell"
 
@@ -17,14 +18,50 @@ class CompetitionsCollectionViewController: UICollectionViewController {
 
     var competitions = [Int: [Competition]]()
     
+    fileprivate var orientation: UIDeviceOrientation {
+        return UIDevice.current.orientation
+    }
+    
+    fileprivate var currentPage: Int = 0
+    
+    fileprivate var pageSize: CGSize {
+        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
+        var pageSize = layout.itemSize
+        if layout.scrollDirection == .horizontal {
+            pageSize.width += layout.minimumLineSpacing
+        } else {
+            pageSize.height += layout.minimumLineSpacing
+        }
+        return pageSize
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView!.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        setupLayout()
         
-        self.collectionView!.reloadData()
-        Loader.addLoaderTo(self.collectionView!)
+        self.currentPage = 0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(CompetitionsCollectionViewController.rotationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
         downloadCompetitions()
+    }
+    
+    fileprivate func setupLayout() {
+        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
+        let screenSize = UIScreen.main.bounds
+        layout.itemSize = CGSize(width: screenSize.width*0.8, height: screenSize.height*0.7)
+        layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 30)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        guard let layout = self.collectionView?.collectionViewLayout as? UPCarouselFlowLayout else {
+            return
+        }
+        layout.itemSize = CGSize(width: size.width*0.8, height: size.height*0.7)
+        layout.invalidateLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +98,6 @@ class CompetitionsCollectionViewController: UICollectionViewController {
                     self.addToCompetitions(Competition(subJson)!)
                 }
                 // Competition array now has elements 🎉
-                Loader.removeLoaderFrom(self.collectionView!)
                 self.collectionView!.reloadData()
             case .failure(let error):
                 print(error)
@@ -72,6 +108,10 @@ class CompetitionsCollectionViewController: UICollectionViewController {
     /// Adds given competition to the appropriate array in the competitions dictionary, based on the year of the competition.
     private func addToCompetitions(_ comp: Competition) {
         let currentCompYear = Calendar.current.dateComponents([.year], from: comp.date).year!
+        // Only keep this year's competitions
+        if currentCompYear != Calendar.current.component(.year, from: Date()) {
+            return
+        }
         // If year array existent,
         if competitions[currentCompYear] != nil {
             // addd to year array
@@ -79,6 +119,18 @@ class CompetitionsCollectionViewController: UICollectionViewController {
         } else {
             // create new one.
             competitions[currentCompYear] = [comp]
+        }
+    }
+    
+    @objc fileprivate func rotationDidChange() {
+        guard !orientation.isFlat else { return }
+        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
+        let direction: UICollectionViewScrollDirection = UIDeviceOrientationIsPortrait(orientation) ? .horizontal : .vertical
+        layout.scrollDirection = direction
+        if currentPage > 0 {
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            let scrollPosition: UICollectionViewScrollPosition = UIDeviceOrientationIsPortrait(orientation) ? .centeredHorizontally : .centeredVertically
+            self.collectionView?.scrollToItem(at: indexPath, at: scrollPosition, animated: false)
         }
     }
     
@@ -184,69 +236,13 @@ class CompetitionsCollectionViewController: UICollectionViewController {
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = UIView()
-//
-//        if competitions.count == 0 {
-//            return view
-//        }
-//
-//        // Configure blur and vibrancy background
-//        let blurEffect = UIBlurEffect(style: .light)
-//        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurredEffectView.frame = view.bounds
-//        blurredEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//
-//        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-//        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
-//        vibrancyEffectView.frame = view.bounds
-//        vibrancyEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//
-//        blurredEffectView.contentView.addSubview(vibrancyEffectView)
-//
-//        view.addSubview(blurredEffectView)
-//        view.sendSubview(toBack: blurredEffectView)
-//
-//        // Set header title to year
-//        let dictKeys = Array(competitions.keys)
-//        let currentCompYear = dictKeys[section]
-//
-//        // we need this class to inset text in a UILabel...
-//        class InsetLabel: UILabel {
-//            let topInset = CGFloat(10)
-//            let bottomInset = CGFloat(10)
-//            let leftInset = CGFloat(10)
-//            let rightInset = CGFloat(0)
-//
-//            override func drawText(in rect: CGRect) {
-//                let insets: UIEdgeInsets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-//                super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
-//            }
-//
-//            override public var intrinsicContentSize: CGSize {
-//                var intrinsicSuperViewContentSize = super.intrinsicContentSize
-//                intrinsicSuperViewContentSize.height += topInset + bottomInset
-//                intrinsicSuperViewContentSize.width += leftInset + rightInset
-//                return intrinsicSuperViewContentSize
-//            }
-//        }
-//        let yearLabel = InsetLabel()
-//        yearLabel.frame = CGRect(x: 0, y: 0, width: 250, height: 40)
-//        yearLabel.text = "\(currentCompYear)"
-//        yearLabel.textColor = UIColor(red: 240/255, green: 110/255, blue: 110/255, alpha: 1.0)
-//        yearLabel.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.heavy)
-//        yearLabel.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(yearLabel)
-//        yearLabel.centerYAnchor.constraint(equalTo: yearLabel.superview!.centerYAnchor).isActive = true
-//
-//        return view
-//    }
-
-}
-
-extension CompetitionsCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.size.width, height: 300);
+    // MARK: - UIScrollViewDelegate
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
+        let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
+        let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
+        currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
     }
 }
 

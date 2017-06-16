@@ -7,9 +7,9 @@ target 'Trafi' do
 
   # Pods for Trafi
   pod 'Alamofire'
-  pod 'BouncyLayout'
-  pod 'SwiftyJSON'
   pod 'Pastel'
+  pod 'SwiftyJSON'
+  pod 'UPCarouselFlowLayout'
 
   target 'TrafiTests' do
     inherit! :search_paths

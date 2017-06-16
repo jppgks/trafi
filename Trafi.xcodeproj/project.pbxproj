@@ -19,7 +19,6 @@
 		AF2BAB7E1EEE838400811EEA /* CompetitionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB781EEE835A00811EEA /* CompetitionsCollectionViewCell.swift */; };
 		AF2BAB7F1EEE838600811EEA /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB791EEE835A00811EEA /* Competition.swift */; };
 		AF2BAB831EEE85A300811EEA /* CompetitionsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */; };
-		AF777A651EED905600B30598 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777A641EED8E6600B30598 /* Loader.swift */; };
 		AFCE46691EEB032900E74BD3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE46681EEB032900E74BD3 /* Event.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +62,6 @@
 		AF2BAB791EEE835A00811EEA /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsCollectionViewController.swift; sourceTree = "<group>"; };
 		AF6FE9941EED228000105EEB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AF777A641EED8E6600B30598 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		AFCE46681EEB032900E74BD3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DCCE73A768B89DFABC6B6378 /* Pods-TrafiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F4AB1641A87AC41DFA7D9E99 /* Pods-TrafiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrafiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrafiUITests/Pods-TrafiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				AF0726301EE47EEC001D20C1 /* Info.plist */,
 				AFCE46681EEB032900E74BD3 /* Event.swift */,
 				AF16D1E11EED7596001C9A70 /* ShortcutIdentifier.swift */,
-				AF777A641EED8E6600B30598 /* Loader.swift */,
 			);
 			path = Trafi;
 			sourceTree = "<group>";
@@ -477,7 +474,6 @@
 				AF2BAB7F1EEE838600811EEA /* Competition.swift in Sources */,
 				AF2BAB831EEE85A300811EEA /* CompetitionsCollectionViewController.swift in Sources */,
 				AF0726251EE47EEC001D20C1 /* AppDelegate.swift in Sources */,
-				AF777A651EED905600B30598 /* Loader.swift in Sources */,
 				AF2BAB7E1EEE838400811EEA /* CompetitionsCollectionViewCell.swift in Sources */,
 				AFCE46691EEB032900E74BD3 /* Event.swift in Sources */,
 			);
