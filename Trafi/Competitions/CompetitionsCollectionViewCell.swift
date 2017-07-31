@@ -17,6 +17,5 @@ class CompetitionsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var pastelView: PastelView!
-    @IBOutlet weak var cardView: UIView!
     
 }

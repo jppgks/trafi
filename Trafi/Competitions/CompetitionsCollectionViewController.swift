@@ -7,10 +7,10 @@
 //
 
 import Alamofire
+import AnimatedCollectionViewLayout
 import Pastel
 import SwiftyJSON
 import UIKit
-import UPCarouselFlowLayout
 
 private let reuseIdentifier = "CompetitionCell"
 
@@ -18,50 +18,45 @@ class CompetitionsCollectionViewController: UICollectionViewController {
 
     var competitions = [Int: [Competition]]()
     
-    fileprivate var orientation: UIDeviceOrientation {
-        return UIDevice.current.orientation
-    }
-    
-    fileprivate var currentPage: Int = 0
-    
-    fileprivate var pageSize: CGSize {
-        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
-        var pageSize = layout.itemSize
-        if layout.scrollDirection == .horizontal {
-            pageSize.width += layout.minimumLineSpacing
-        } else {
-            pageSize.height += layout.minimumLineSpacing
-        }
-        return pageSize
+    var animator = (LinearCardAttributesAnimator(), false, 1, 1)
+    var direction: UICollectionViewScrollDirection {
+        return UIDeviceOrientationIsPortrait(UIDevice.current.orientation) ? .vertical : .horizontal
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupLayout()
+        collectionView?.isPagingEnabled = true
+        let layout = AnimatedCollectionViewLayout()
+        layout.animator = LinearCardAttributesAnimator(minAlpha: 0.5, itemSpacing: 0.2, scaleRate: 0.8)
+        layout.scrollDirection = direction
         
-        self.currentPage = 0
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(CompetitionsCollectionViewController.rotationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        layout.itemSize = UIScreen.main.bounds.size
+        layout.sectionInset = .zero
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView?.collectionViewLayout = layout
         
         downloadCompetitions()
     }
     
-    fileprivate func setupLayout() {
-        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
-        let screenSize = UIScreen.main.bounds
-        layout.itemSize = CGSize(width: screenSize.width*0.8, height: screenSize.height*0.7)
-        layout.spacingMode = UPCarouselFlowLayoutSpacingMode.overlap(visibleOffset: 30)
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
-        guard let layout = self.collectionView?.collectionViewLayout as? UPCarouselFlowLayout else {
+        // Make sure we have a layout object
+        guard let layout = collectionView?.collectionViewLayout as? AnimatedCollectionViewLayout else {
             return
         }
-        layout.itemSize = CGSize(width: size.width*0.8, height: size.height*0.7)
-        layout.invalidateLayout()
+        // Get smallest side
+        let side = view.bounds.width < view.bounds.height ? view.bounds.width : view.bounds.height
+        layout.itemSize = CGSize(width: side, height: side)
+        
+        // Get direction based on size
+        layout.scrollDirection = view.bounds.width < view.bounds.height ? .horizontal : .vertical
+        
+        layout.sectionInset = .zero
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,19 +116,6 @@ class CompetitionsCollectionViewController: UICollectionViewController {
             competitions[currentCompYear] = [comp]
         }
     }
-    
-    @objc fileprivate func rotationDidChange() {
-        guard !orientation.isFlat else { return }
-        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
-        let direction: UICollectionViewScrollDirection = UIDeviceOrientationIsPortrait(orientation) ? .horizontal : .vertical
-        layout.scrollDirection = direction
-        if currentPage > 0 {
-            let indexPath = IndexPath(item: currentPage, section: 0)
-            let scrollPosition: UICollectionViewScrollPosition = UIDeviceOrientationIsPortrait(orientation) ? .centeredHorizontally : .centeredVertically
-            self.collectionView?.scrollToItem(at: indexPath, at: scrollPosition, animated: false)
-        }
-    }
-    
 
     /*
     // MARK: - Navigation
@@ -187,15 +169,18 @@ class CompetitionsCollectionViewController: UICollectionViewController {
         // ...and location!
         cell.locationLabel.text = competition.location
         
-        // Add shadow to cardView...
-        cell.cardView.layer.masksToBounds = false
-        cell.cardView.layer.shadowRadius = 10.0
-        cell.cardView.layer.shadowOpacity = 0.2
-        cell.cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        cell.cardView.layer.shadowColor = UIColor.black.cgColor
+        // Add shadow and corners to cardView...
+        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+        cell.contentView.layer.masksToBounds = true
         
-        // ...and corners!
-        cell.cardView.layer.cornerRadius = 10.0
+        cell.layer.shadowColor = UIColor.gray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 10.0)
+        cell.layer.shadowRadius = 10.0
+        cell.layer.shadowOpacity = 0.2
+        cell.layer.masksToBounds = false
+        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
         
         // Configure pastel view for gradient background
         cell.pastelView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleRightMargin, .flexibleBottomMargin]
@@ -220,13 +205,15 @@ class CompetitionsCollectionViewController: UICollectionViewController {
         blurredEffectView.frame = cell.moreButton.bounds
         blurredEffectView.layer.cornerRadius = 12
         blurredEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurredEffectView.isUserInteractionEnabled = false
         
         let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
         let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
         vibrancyEffectView.clipsToBounds = true
         vibrancyEffectView.frame = cell.moreButton.bounds
-        blurredEffectView.layer.cornerRadius = 12
+        vibrancyEffectView.layer.cornerRadius = 12
         vibrancyEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        vibrancyEffectView.isUserInteractionEnabled = false
         
         blurredEffectView.contentView.addSubview(vibrancyEffectView)
         
@@ -236,13 +223,42 @@ class CompetitionsCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    // MARK: - UIScrollViewDelegate
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
     
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let layout = self.collectionView?.collectionViewLayout as! UPCarouselFlowLayout
-        let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
-        let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
-        currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//
+//        // Create an instance of PlayerTableViewController and pass the variable
+//        let destinationVC = CompetitionDetailTableViewController()
+//        destinationVC.competitionId = competition.id
+//
+//        print(competition.id)
+//
+//        destinationVC.performSegue(withIdentifier: "seeMore", sender: self)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
+        if let indexPath = self.collectionView?.indexPath(for: sender as! CompetitionsCollectionViewCell) {
+            if segue.identifier == "seeMore" {
+                // Get competition for current cell
+                let dictKeys = Array(competitions.keys)
+                let currentCompYear = dictKeys[indexPath.section]
+                let competition = competitions[currentCompYear]![indexPath.item]
+                
+                let detailVC: CompetitionDetailTableViewController = segue.destination as! CompetitionDetailTableViewController
+                detailVC.competitionId = competition.id
+            }
+        }
     }
 }
 
