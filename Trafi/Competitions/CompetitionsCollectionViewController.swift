@@ -8,6 +8,7 @@
 
 import Alamofire
 import AnimatedCollectionViewLayout
+import ChameleonFramework
 import Pastel
 import SwiftyJSON
 import UIKit
@@ -22,6 +23,8 @@ class CompetitionsCollectionViewController: UICollectionViewController {
     var direction: UICollectionViewScrollDirection {
         return UIDeviceOrientationIsPortrait(UIDevice.current.orientation) ? .vertical : .horizontal
     }
+    
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +66,10 @@ class CompetitionsCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         
         // Make status bar have a white background
-        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-        statusBar.backgroundColor = .white
+//        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+//        statusBar.backgroundColor = .white
+        
+        self.setStatusBarStyle(UIStatusBarStyleContrast)
         
         // Hide navigation bar
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -153,7 +158,13 @@ class CompetitionsCollectionViewController: UICollectionViewController {
         }
         let dictKeys = Array(competitions.keys)
         let currentCompYear = dictKeys[section]
+        self.pageControl.numberOfPages = competitions[currentCompYear]!.count
         return competitions[currentCompYear]!.count
+    }
+    
+    // Pagecontrol
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControl.currentPage = indexPath.row
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

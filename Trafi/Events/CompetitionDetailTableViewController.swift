@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import ChameleonFramework
 import SwiftyJSON
 import UIKit
 
@@ -21,9 +22,20 @@ class CompetitionDetailTableViewController: UITableViewController {
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Navigation bar styling
+        self.navigationController?.hidesNavigationBarHairline = true
+        self.navigationController?.navigationBar.tintColor = ContrastColorOf(FlatYellow(), returnFlat: true)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: ContrastColorOf(FlatYellow(), returnFlat: true)]
+        
+        // Status bar styling
+        self.setStatusBarStyle(UIStatusBarStyleContrast)
+        
+        self.tableView?.backgroundColor = FlatWhiteDark()
     }
     
     /// Reads competition data from Trafi API and stores them in a Competition list.
@@ -70,6 +82,8 @@ class CompetitionDetailTableViewController: UITableViewController {
         }
         
         //Configure the cell...
+        cell.cellView.backgroundColor = FlatWhite()
+        cell.titleLabel.textColor = ContrastColorOf(cell.cellView.backgroundColor!, returnFlat: true)
         cell.titleLabel.text = events[indexPath.row].name
         
         return cell

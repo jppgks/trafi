@@ -11,6 +11,7 @@ import UIKit
 class CompetitionDetailTableViewCell: UITableViewCell {
     static let reuseIdentifier = "CompetitionDetailCell"
 
+    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func setSelected(_ selected: Bool, animated: Bool) {

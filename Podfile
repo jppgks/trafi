@@ -8,6 +8,7 @@ target 'Trafi' do
   # Pods for Trafi
   pod 'Alamofire'
   pod 'AnimatedCollectionViewLayout'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'Pastel'
   pod 'SwiftyJSON'
 
