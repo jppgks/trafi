@@ -1,8 +1,8 @@
 //
-//  CompetitionDetailTableViewController.swift
+//  ParticipantsTableViewController.swift
 //  Trafi
 //
-//  Created by Joppe Geluykens on 2017-06-21.
+//  Created by Joppe Geluykens on 2017-08-03.
 //  Copyright © 2017 Young Wolves. All rights reserved.
 //
 
@@ -12,17 +12,20 @@ import PullToDismiss
 import SwiftyJSON
 import UIKit
 
-class CompetitionDetailTableViewController: UITableViewController {
+class ParticipantsTableViewController: UITableViewController {
     var competitionId = ""
-    var events = [Event]()
+    var event: Event? = nil
+    
+    var participants = [Participant]()
     
     var pullToDismiss: PullToDismiss?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        downloadEvents()
+        downloadParticipants()
         
+        // Pull to dismiss
         pullToDismiss = PullToDismiss(scrollView: self.tableView)
         pullToDismiss?.dismissAction = { [weak self] in
             self?.dismiss(animated: true)
@@ -30,6 +33,9 @@ class CompetitionDetailTableViewController: UITableViewController {
         pullToDismiss?.delegate = self
         pullToDismiss?.backgroundEffect = BlurEffect.dark
         pullToDismiss?.dismissableHeightPercentage = 0.5
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,31 +51,30 @@ class CompetitionDetailTableViewController: UITableViewController {
         
         self.tableView?.backgroundColor = FlatWhiteDark()
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    /// Reads event data from Trafi API and stores them in an Events list.
-    private func downloadEvents() {
-        
+    /// Reads participants data from Trafi API and stores them in a Participants list.
+    private func downloadParticipants() {
         // Send get request to Trafi API for competitions
-        Alamofire.request("https://api.trafi.be/competitions/" + competitionId + "/registers").validate().responseJSON { response in
+        Alamofire.request("https://api.trafi.be/competition/" + competitionId + "/register/" + event!.id + "/participants").validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 // Create SwiftyJSON object from response result
                 let json = JSON(value)
-                // Create Competition object from each subJson in the json array
+                // Create Participant object from each subJson in the json array
                 for (_,subJson):(String, JSON) in json {
-                    self.events.append(Event(subJson)!)
+                    self.participants.append(Participant(subJson)!)
                 }
-                // Events array now has elements 🎉
+                // Participants array now has elements 🎉
                 self.tableView!.reloadData()
             case .failure(let error):
                 print(error)
             }
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -79,24 +84,34 @@ class CompetitionDetailTableViewController: UITableViewController {
         // TODO: section for men/women?
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return participants.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CompetitionDetailCell", for: indexPath) as? CompetitionDetailTableViewCell else {
-            fatalError("The dequeued cell is not an instance of CompetitionDetailTableViewCell.")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantsCell", for: indexPath) as? ParticipantsTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ParticipantsTableViewCell.")
         }
         
-        //Configure the cell...
-        cell.cellView.backgroundColor = .white
-        cell.titleLabel.textColor = ContrastColorOf(cell.cellView.backgroundColor!, returnFlat: true)
-        cell.titleLabel.text = events[indexPath.row].name.uppercased()
+        // Styling
+        cell.contentView.backgroundColor = .white
+        let contrastColor = ContrastColorOf(cell.contentView.backgroundColor!, returnFlat: true)
+        
+        cell.nameLabel.textColor = contrastColor
+        cell.teamLabel.textColor = contrastColor
+        cell.seasonBestLabel.textColor = contrastColor
+        cell.personalBestLabel.textColor = contrastColor
+        
+        // Display data
+        cell.nameLabel.text = participants[indexPath.row].name
+        cell.teamLabel.text = participants[indexPath.row].team
+        cell.seasonBestLabel.text = participants[indexPath.row].seasonBest
+        cell.personalBestLabel.text = participants[indexPath.row].personalBest.performance
         
         return cell
     }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -131,28 +146,19 @@ class CompetitionDetailTableViewController: UITableViewController {
         return true
     }
     */
-    
-    // MARK: - Navigation
 
+    // MARK: - Navigation
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier ?? "" {
-        case "seeMore":
-            guard (sender as? CompetitionsCollectionViewCell) != nil else {
-                fatalError("Unexpected sender \(sender!)")
-            }
         case "seeParticipants":
-            if let indexPath = self.tableView?.indexPath(for: sender as! CompetitionDetailTableViewCell) {
-                // Get event for current cell
-                let event: Event = events[indexPath.row]
-                
-                let participantsViewCtrl: ParticipantsTableViewController = segue.destination as! ParticipantsTableViewController
-                participantsViewCtrl.competitionId = competitionId
-                participantsViewCtrl.event = event
+            guard (sender as? CompetitionDetailTableViewCell) != nil else {
+                fatalError("Unexpected sender \(sender!)")
             }
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier!)")
         }
     }
-    
+
 }

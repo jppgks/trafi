@@ -20,6 +20,9 @@
 		AF2BAB7E1EEE838400811EEA /* CompetitionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB781EEE835A00811EEA /* CompetitionsCollectionViewCell.swift */; };
 		AF2BAB7F1EEE838600811EEA /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB791EEE835A00811EEA /* Competition.swift */; };
 		AF2BAB831EEE85A300811EEA /* CompetitionsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */; };
+		AF5D5B0F1F33784D0099F0D7 /* ParticipantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D5B0C1F33768A0099F0D7 /* ParticipantsTableViewCell.swift */; };
+		AF5D5B111F3378CD0099F0D7 /* ParticipantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D5B101F3378CD0099F0D7 /* ParticipantsTableViewController.swift */; };
+		AF5D5B131F337E120099F0D7 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5D5B121F337E120099F0D7 /* Participant.swift */; };
 		AF85842F1EFADD9200E6683A /* CompetitionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF85842E1EFADD9200E6683A /* CompetitionDetailTableViewController.swift */; };
 		AFCE46691EEB032900E74BD3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE46681EEB032900E74BD3 /* Event.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +67,9 @@
 		AF2BAB781EEE835A00811EEA /* CompetitionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AF2BAB791EEE835A00811EEA /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionsCollectionViewController.swift; sourceTree = "<group>"; };
+		AF5D5B0C1F33768A0099F0D7 /* ParticipantsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableViewCell.swift; sourceTree = "<group>"; };
+		AF5D5B101F3378CD0099F0D7 /* ParticipantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsTableViewController.swift; sourceTree = "<group>"; };
+		AF5D5B121F337E120099F0D7 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		AF6FE9941EED228000105EEB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF85842E1EFADD9200E6683A /* CompetitionDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailTableViewController.swift; sourceTree = "<group>"; };
 		AFCE46681EEB032900E74BD3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 		AF0726231EE47EEC001D20C1 /* Trafi */ = {
 			isa = PBXGroup;
 			children = (
+				AF5D5B0B1F33768A0099F0D7 /* Participants */,
 				AF85E8561EF9A348003EBF90 /* Events */,
 				AF2BAB771EEE835A00811EEA /* Competitions */,
 				AF6FE9941EED228000105EEB /* LaunchScreen.storyboard */,
@@ -186,6 +193,16 @@
 				AF2BAB7A1EEE835A00811EEA /* CompetitionsCollectionViewController.swift */,
 			);
 			path = Competitions;
+			sourceTree = "<group>";
+		};
+		AF5D5B0B1F33768A0099F0D7 /* Participants */ = {
+			isa = PBXGroup;
+			children = (
+				AF5D5B0C1F33768A0099F0D7 /* ParticipantsTableViewCell.swift */,
+				AF5D5B101F3378CD0099F0D7 /* ParticipantsTableViewController.swift */,
+				AF5D5B121F337E120099F0D7 /* Participant.swift */,
+			);
+			path = Participants;
 			sourceTree = "<group>";
 		};
 		AF85E8561EF9A348003EBF90 /* Events */ = {
@@ -485,10 +502,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF14B4861F2FB7A1000ED853 /* CompetitionDetailTableViewCell.swift in Sources */,
+				AF5D5B0F1F33784D0099F0D7 /* ParticipantsTableViewCell.swift in Sources */,
 				AF85842F1EFADD9200E6683A /* CompetitionDetailTableViewController.swift in Sources */,
 				AF16D1E21EED7596001C9A70 /* ShortcutIdentifier.swift in Sources */,
 				AF2BAB7F1EEE838600811EEA /* Competition.swift in Sources */,
+				AF5D5B111F3378CD0099F0D7 /* ParticipantsTableViewController.swift in Sources */,
 				AF2BAB831EEE85A300811EEA /* CompetitionsCollectionViewController.swift in Sources */,
+				AF5D5B131F337E120099F0D7 /* Participant.swift in Sources */,
 				AF0726251EE47EEC001D20C1 /* AppDelegate.swift in Sources */,
 				AF2BAB7E1EEE838400811EEA /* CompetitionsCollectionViewCell.swift in Sources */,
 				AFCE46691EEB032900E74BD3 /* Event.swift in Sources */,

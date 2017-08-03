@@ -10,7 +10,7 @@ import UIKit
 
 class CompetitionDetailTableViewCell: UITableViewCell {
     static let reuseIdentifier = "CompetitionDetailCell"
-
+    
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     
